@@ -16,27 +16,27 @@ pub struct AssociationModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "numberOfTransactions")]
-	pub number_of_transactions: i32,
+	pub number_of_transactions: Option<i32>,
 	#[serde(rename = "maxNumberOfItemsPerTA")]
 	pub max_number_of_items_per_ta: Option<i32>,
 	#[serde(rename = "avgNumberOfItemsPerTA")]
 	pub avg_number_of_items_per_ta: Option<f64>,
 	#[serde(rename = "minimumSupport")]
-	pub minimum_support: f64,
+	pub minimum_support: Option<f64>,
 	#[serde(rename = "minimumConfidence")]
-	pub minimum_confidence: f64,
+	pub minimum_confidence: Option<f64>,
 	#[serde(rename = "lengthLimit")]
 	pub length_limit: Option<i32>,
 	#[serde(rename = "numberOfItems")]
-	pub number_of_items: i32,
+	pub number_of_items: Option<i32>,
 	#[serde(rename = "numberOfItemsets")]
-	pub number_of_itemsets: i32,
+	pub number_of_itemsets: Option<i32>,
 	#[serde(rename = "numberOfRules")]
-	pub number_of_rules: i32,
+	pub number_of_rules: Option<i32>,
 	#[serde(rename = "isScorable")]
 	pub is_scorable: Option<bool>,
 	#[serde(rename = "Extension")]
@@ -64,9 +64,9 @@ pub struct AssociationModel {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Item {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "field")]
 	pub field: Option<String>,
 	#[serde(rename = "category")]
@@ -84,7 +84,7 @@ pub struct Item {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Itemset {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "support")]
 	pub support: Option<f64>,
 	#[serde(rename = "numberOfItems")]
@@ -100,7 +100,7 @@ pub struct Itemset {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ItemRef {
 	#[serde(rename = "itemRef")]
-	pub item_ref: String,
+	pub item_ref: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -110,13 +110,13 @@ pub struct ItemRef {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct AssociationRule {
 	#[serde(rename = "antecedent")]
-	pub antecedent: String,
+	pub antecedent: Option<String>,
 	#[serde(rename = "consequent")]
-	pub consequent: String,
+	pub consequent: Option<String>,
 	#[serde(rename = "support")]
-	pub support: f64,
+	pub support: Option<f64>,
 	#[serde(rename = "confidence")]
-	pub confidence: f64,
+	pub confidence: Option<f64>,
 	#[serde(rename = "lift")]
 	pub lift: Option<f64>,
 	#[serde(rename = "leverage")]
@@ -136,7 +136,7 @@ pub struct BaselineModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "isScorable")]
@@ -166,9 +166,9 @@ pub struct BaselineModel {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TestDistributions {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "testStatistic")]
-	pub test_statistic: String,
+	pub test_statistic: Option<String>,
 	#[serde(rename = "resetValue")]
 	pub reset_value: Option<f64>,
 	#[serde(rename = "windowSize")]
@@ -190,7 +190,7 @@ pub struct TestDistributions {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct BASELINETESTSTATISTIC {
 	#[serde(rename = "BASELINE-TEST-STATISTIC")]
-	pub baselineteststatistic: String,
+	pub baselineteststatistic: Option<String>,
 }
 
 
@@ -232,9 +232,9 @@ pub struct CONTINUOUSDISTRIBUTIONTYPES {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct AnyDistribution {
 	#[serde(rename = "mean")]
-	pub mean: f64,
+	pub mean: Option<f64>,
 	#[serde(rename = "variance")]
-	pub variance: f64,
+	pub variance: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -244,9 +244,9 @@ pub struct AnyDistribution {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct GaussianDistribution {
 	#[serde(rename = "mean")]
-	pub mean: f64,
+	pub mean: Option<f64>,
 	#[serde(rename = "variance")]
-	pub variance: f64,
+	pub variance: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -256,7 +256,7 @@ pub struct GaussianDistribution {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PoissonDistribution {
 	#[serde(rename = "mean")]
-	pub mean: f64,
+	pub mean: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -266,9 +266,9 @@ pub struct PoissonDistribution {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct UniformDistribution {
 	#[serde(rename = "lower")]
-	pub lower: f64,
+	pub lower: Option<f64>,
 	#[serde(rename = "upper")]
-	pub upper: f64,
+	pub upper: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -320,7 +320,7 @@ pub struct COUNTTABLETYPE {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct FieldValue {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "value")]
 	pub value: char,
 	#[serde(rename = "Extension")]
@@ -336,11 +336,11 @@ pub struct FieldValue {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct FieldValueCount {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "value")]
 	pub value: char,
 	#[serde(rename = "count")]
-	pub count: f64,
+	pub count: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -352,7 +352,7 @@ pub struct BayesianNetworkModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "isScorable")]
@@ -394,7 +394,7 @@ pub struct BayesianNetworkNodes {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct DiscreteNode {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "count")]
 	pub count: Option<f64>,
 	#[serde(rename = "Extension")]
@@ -412,7 +412,7 @@ pub struct DiscreteNode {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ContinuousNode {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "count")]
 	pub count: Option<f64>,
 	#[serde(rename = "Extension")]
@@ -444,9 +444,9 @@ pub struct DiscreteConditionalProbability {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ParentValue {
 	#[serde(rename = "parent")]
-	pub parent: String,
+	pub parent: Option<String>,
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -456,9 +456,9 @@ pub struct ParentValue {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ValueProbability {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "probability")]
-	pub probability: f64,
+	pub probability: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -590,13 +590,13 @@ pub struct ClusteringModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "modelClass")]
-	pub model_class: String,
+	pub model_class: Option<String>,
 	#[serde(rename = "numberOfClusters")]
-	pub number_of_clusters: i32,
+	pub number_of_clusters: Option<i32>,
 	#[serde(rename = "isScorable")]
 	pub is_scorable: Option<bool>,
 	#[serde(rename = "Extension")]
@@ -612,7 +612,7 @@ pub struct ClusteringModel {
 	#[serde(rename = "LocalTransformations")]
 	pub local_transformations: LocalTransformations,
 	#[serde(rename = "ComparisonMeasure")]
-	pub comparison_measure: String,
+	pub comparison_measure: Option<String>,
 	#[serde(rename = "ClusteringField")]
 	pub clustering_field: Vec<String>,
 	#[serde(rename = "MissingValueWeights")]
@@ -620,7 +620,7 @@ pub struct ClusteringModel {
 	#[serde(rename = "Cluster")]
 	pub cluster: Vec<Cluster>,
 	#[serde(rename = "ClusteringModel")]
-	pub clustering_model: String,
+	pub clustering_model: Option<String>,
 }
 
 
@@ -676,7 +676,7 @@ pub struct Covariances {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "Matrix")]
-	pub matrix: String,
+	pub matrix: Option<String>,
 }
 
 
@@ -684,7 +684,7 @@ pub struct Covariances {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ClusteringField {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "isCenterField")]
 	pub is_center_field: Option<String>,
 	#[serde(rename = "fieldWeight")]
@@ -696,7 +696,7 @@ pub struct ClusteringField {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "ClusteringField")]
-	pub clustering_field: String,
+	pub clustering_field: Option<String>,
 }
 
 
@@ -706,7 +706,7 @@ pub struct Comparisons {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "Matrix")]
-	pub matrix: String,
+	pub matrix: Option<String>,
 }
 
 
@@ -714,7 +714,7 @@ pub struct Comparisons {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct COMPAREFUNCTION {
 	#[serde(rename = "COMPARE-FUNCTION")]
-	pub comparefunction: String,
+	pub comparefunction: Option<String>,
 }
 
 
@@ -722,7 +722,7 @@ pub struct COMPAREFUNCTION {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ComparisonMeasure {
 	#[serde(rename = "kind")]
-	pub kind: String,
+	pub kind: Option<String>,
 	#[serde(rename = "compareFunction")]
 	pub compare_function: Option<String>,
 	#[serde(rename = "minimum")]
@@ -748,7 +748,7 @@ pub struct ComparisonMeasure {
 	#[serde(rename = "tanimoto")]
 	pub tanimoto: Tanimoto,
 	#[serde(rename = "ComparisonMeasure")]
-	pub comparison_measure: String,
+	pub comparison_measure: Option<String>,
 }
 
 
@@ -788,7 +788,7 @@ pub struct Chebychev {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Minkowski {
 	#[serde(rename = "p-parameter")]
-	pub pparameter: f64,
+	pub pparameter: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -822,21 +822,21 @@ pub struct Tanimoto {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct BinarySimilarity {
 	#[serde(rename = "c00-parameter")]
-	pub c00parameter: f64,
+	pub c00parameter: Option<f64>,
 	#[serde(rename = "c01-parameter")]
-	pub c01parameter: f64,
+	pub c01parameter: Option<f64>,
 	#[serde(rename = "c10-parameter")]
-	pub c10parameter: f64,
+	pub c10parameter: Option<f64>,
 	#[serde(rename = "c11-parameter")]
-	pub c11parameter: f64,
+	pub c11parameter: Option<f64>,
 	#[serde(rename = "d00-parameter")]
-	pub d00parameter: f64,
+	pub d00parameter: Option<f64>,
 	#[serde(rename = "d01-parameter")]
-	pub d01parameter: f64,
+	pub d01parameter: Option<f64>,
 	#[serde(rename = "d10-parameter")]
-	pub d10parameter: f64,
+	pub d10parameter: Option<f64>,
 	#[serde(rename = "d11-parameter")]
-	pub d11parameter: f64,
+	pub d11parameter: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -860,13 +860,13 @@ pub struct DataDictionary {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct DataField {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "displayName")]
 	pub display_name: Option<String>,
 	#[serde(rename = "optype")]
-	pub optype: String,
+	pub optype: Option<String>,
 	#[serde(rename = "dataType")]
-	pub data_type: String,
+	pub data_type: Option<String>,
 	#[serde(rename = "taxonomy")]
 	pub taxonomy: Option<String>,
 	#[serde(rename = "isCyclic")]
@@ -876,7 +876,7 @@ pub struct DataField {
 	#[serde(rename = "Interval")]
 	pub interval: Vec<String>,
 	#[serde(rename = "DataField")]
-	pub data_field: String,
+	pub data_field: Option<String>,
 }
 
 
@@ -884,7 +884,7 @@ pub struct DataField {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct OPTYPE {
 	#[serde(rename = "OPTYPE")]
-	pub optype: String,
+	pub optype: Option<String>,
 }
 
 
@@ -892,7 +892,7 @@ pub struct OPTYPE {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct DATATYPE {
 	#[serde(rename = "DATATYPE")]
-	pub datatype: String,
+	pub datatype: Option<String>,
 }
 
 
@@ -900,7 +900,7 @@ pub struct DATATYPE {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Value {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 
 	#[serde(rename = "displayValue")]
 	pub display_value: Option<String>,
@@ -926,13 +926,13 @@ pub enum Property {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Interval {
 	#[serde(rename = "closure")]
-	pub closure: String,
+	pub closure: Option<String>,
 	#[serde(rename = "leftMargin")]
 	pub left_margin: Option<f64>,
 	#[serde(rename = "rightMargin")]
 	pub right_margin: Option<f64>,
 	#[serde(rename = "Interval")]
-	pub interval: String,
+	pub interval: Option<String>,
 }
 
 
@@ -940,9 +940,9 @@ pub struct Interval {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct DefineFunction {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "optype")]
-	pub optype: String,
+	pub optype: Option<String>,
 	#[serde(rename = "dataType")]
 	pub data_type: Option<String>,
 	#[serde(rename = "EXPRESSION")]
@@ -958,7 +958,7 @@ pub struct DefineFunction {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ParameterField {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "optype")]
 	pub optype: Option<String>,
 	#[serde(rename = "dataType")]
@@ -1046,7 +1046,7 @@ pub enum MissingValueTreatmentMethod {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Apply {
 	#[serde(rename = "function")]
-	pub function: String,
+	pub function: Option<String>,
 	#[serde(rename = "mapMissingTo")]
 	pub map_missing_to: Option<String>,
 	#[serde(rename = "defaultValue")]
@@ -1104,7 +1104,7 @@ pub struct GaussianProcessModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "optimizer")]
@@ -1222,11 +1222,11 @@ pub struct GeneralRegressionModel {
 	#[serde(rename = "targetVariableName")]
 	pub target_variable_name: Option<String>,
 	#[serde(rename = "modelType")]
-	pub model_type: String,
+	pub model_type: Option<String>,
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "targetReferenceCategory")]
@@ -1264,41 +1264,43 @@ pub struct GeneralRegressionModel {
 	#[serde(rename = "isScorable")]
 	pub is_scorable: Option<bool>,
 	#[serde(rename = "Extension")]
-	pub extension: Vec<Extension>,
+	pub extension: Option<Vec<Extension>>,
 	#[serde(rename = "MiningSchema")]
-	pub mining_schema: MiningSchema,
+	pub mining_schema: Option<MiningSchema>,
 	#[serde(rename = "Output")]
-	pub output: Output,
+	pub output: Option<Output>,
 	#[serde(rename = "ModelStats")]
-	pub model_stats: ModelStats,
+	pub model_stats: Option<ModelStats>,
 	#[serde(rename = "ModelExplanation")]
-	pub model_explanation: ModelExplanation,
+	pub model_explanation: Option<ModelExplanation>,
 	#[serde(rename = "Targets")]
-	pub targets: Targets,
+	pub targets: Option<Targets>,
 	#[serde(rename = "LocalTransformations")]
-	pub local_transformations: LocalTransformations,
+	pub local_transformations: Option<LocalTransformations>,
 	#[serde(rename = "ParameterList")]
-	pub parameter_list: ParameterList,
+	pub parameter_list: Option<ParameterList>,
 	#[serde(rename = "FactorList")]
-	pub factor_list: FactorList,
+	pub factor_list: Option<Option<FactorList>>,
 	#[serde(rename = "CovariateList")]
-	pub covariate_list: CovariateList,
+	pub covariate_list: Option<CovariateList>,
 	#[serde(rename = "PPMatrix")]
-	pub pp_matrix: PPMatrix,
+	pub pp_matrix: Option<PPMatrix>,
 	#[serde(rename = "PCovMatrix")]
-	pub p_cov_matrix: String,
+	pub p_cov_matrix: Option<String>,
 	#[serde(rename = "ParamMatrix")]
-	pub param_matrix: ParamMatrix,
+	pub param_matrix: Option<ParamMatrix>,
 	#[serde(rename = "EventValues")]
-	pub event_values: EventValues,
+	pub event_values: Option<EventValues>,
 	#[serde(rename = "BaseCumHazardTables")]
-	pub base_cum_hazard_tables: BaseCumHazardTables,
+	pub base_cum_hazard_tables: Option<BaseCumHazardTables>,
 	#[serde(rename = "GeneralRegressionModel")]
-	pub general_regression_model: String,
+	pub general_regression_model: Option<String>,
 }
 
 
-// ParameterList ...
+
+
+///////////// ParameterList ...
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ParameterList {
 	#[serde(rename = "Extension")]
@@ -1312,7 +1314,7 @@ pub struct ParameterList {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Parameter {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "label")]
 	pub label: Option<String>,
 	#[serde(rename = "referencePoint")]
@@ -1346,7 +1348,7 @@ pub struct CovariateList {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Predictor {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "contrastMatrixType")]
 	pub contrast_matrix_type: Option<String>,
 	#[serde(rename = "Extension")]
@@ -1354,7 +1356,7 @@ pub struct Predictor {
 	#[serde(rename = "Categories")]
 	pub categories: Categories,
 	#[serde(rename = "Matrix")]
-	pub matrix: String,
+	pub matrix: Option<String>,
 }
 
 
@@ -1372,7 +1374,7 @@ pub struct Categories {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Category {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -1392,11 +1394,11 @@ pub struct PPMatrix {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PPCell {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "predictorName")]
-	pub predictor_name: String,
+	pub predictor_name: Option<String>,
 	#[serde(rename = "parameterName")]
-	pub parameter_name: String,
+	pub parameter_name: Option<String>,
 	#[serde(rename = "targetCategory")]
 	pub target_category: Option<String>,
 	#[serde(rename = "Extension")]
@@ -1412,7 +1414,7 @@ pub struct PCovMatrix {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "PCovMatrix")]
-	pub p_cov_matrix: String,
+	pub p_cov_matrix: Option<String>,
 }
 
 
@@ -1420,15 +1422,15 @@ pub struct PCovMatrix {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PCovCell {
 	#[serde(rename = "pRow")]
-	pub p_row: String,
+	pub p_row: Option<String>,
 	#[serde(rename = "pCol")]
-	pub p_col: String,
+	pub p_col: Option<String>,
 	#[serde(rename = "tRow")]
 	pub t_row: Option<String>,
 	#[serde(rename = "tCol")]
 	pub t_col: Option<String>,
 	#[serde(rename = "value")]
-	pub value: f64,
+	pub value: Option<f64>,
 	#[serde(rename = "targetCategory")]
 	pub target_category: Option<String>,
 	#[serde(rename = "Extension")]
@@ -1440,9 +1442,9 @@ pub struct PCovCell {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ParamMatrix {
 	#[serde(rename = "Extension")]
-	pub extension: Vec<Extension>,
+	pub extension: Option<Vec<Extension>>,
 	#[serde(rename = "PCell")]
-	pub p_cell: Vec<PCell>,
+	pub p_cell: Option<Vec<PCell>>,
 }
 
 
@@ -1452,13 +1454,13 @@ pub struct PCell {
 	#[serde(rename = "targetCategory")]
 	pub target_category: Option<String>,
 	#[serde(rename = "parameterName")]
-	pub parameter_name: String,
+	pub parameter_name: Option<String>,
 	#[serde(rename = "beta")]
-	pub beta: f64,
+	pub beta: Option<f64>,
 	#[serde(rename = "df")]
 	pub df: Option<i32>,
 	#[serde(rename = "Extension")]
-	pub extension: Vec<Extension>,
+	pub extension: Option<Vec<Extension>>,
 }
 
 
@@ -1480,11 +1482,11 @@ pub struct BaseCumHazardTables {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct BaselineStratum {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "label")]
 	pub label: Option<String>,
 	#[serde(rename = "maxTime")]
-	pub max_time: f64,
+	pub max_time: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "BaselineCell")]
@@ -1496,9 +1498,9 @@ pub struct BaselineStratum {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct BaselineCell {
 	#[serde(rename = "time")]
-	pub time: f64,
+	pub time: Option<f64>,
 	#[serde(rename = "cumHazard")]
-	pub cum_hazard: f64,
+	pub cum_hazard: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -1520,7 +1522,7 @@ pub struct EventValues {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct CUMULATIVELINKFUNCTION {
 	#[serde(rename = "CUMULATIVE-LINK-FUNCTION")]
-	pub cumulativelinkfunction: String,
+	pub cumulativelinkfunction: Option<String>,
 }
 
 
@@ -1528,7 +1530,7 @@ pub struct CUMULATIVELINKFUNCTION {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct LINKFUNCTION {
 	#[serde(rename = "LINK-FUNCTION")]
-	pub linkfunction: String,
+	pub linkfunction: Option<String>,
 }
 
 
@@ -1536,7 +1538,7 @@ pub struct LINKFUNCTION {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PMML {
 	#[serde(rename = "version")]
-	pub version: String,
+	pub version: Option<String>,
 	#[serde(rename = "MODEL-ELEMENT")]
 	pub modelelement: MODELELEMENT,
 	#[serde(rename = "Header")]
@@ -1562,11 +1564,11 @@ pub struct MODELELEMENT {
 	#[serde(rename = "BaselineModel")]
 	pub baseline_model: BaselineModel,
 	#[serde(rename = "ClusteringModel")]
-	pub clustering_model: String,
+	pub clustering_model: Option<String>,
 	#[serde(rename = "GaussianProcessModel")]
 	pub gaussian_process_model: GaussianProcessModel,
 	#[serde(rename = "GeneralRegressionModel")]
-	pub general_regression_model: String,
+	pub general_regression_model: Option<String>,
 	#[serde(rename = "MiningModel")]
 	pub mining_model: MiningModel,
 	#[serde(rename = "NaiveBayesModel")]
@@ -1576,13 +1578,13 @@ pub struct MODELELEMENT {
 	#[serde(rename = "NeuralNetwork")]
 	pub neural_network: NeuralNetwork,
 	#[serde(rename = "RegressionModel")]
-	pub regression_model: String,
+	pub regression_model: Option<String>,
 	#[serde(rename = "RuleSetModel")]
 	pub rule_set_model: RuleSetModel,
 	#[serde(rename = "SequenceModel")]
 	pub sequence_model: SequenceModel,
 	#[serde(rename = "Scorecard")]
-	pub scorecard: String,
+	pub scorecard: Option<String>,
 	#[serde(rename = "SupportVectorMachineModel")]
 	pub support_vector_machine_model: SupportVectorMachineModel,
 	#[serde(rename = "TextModel")]
@@ -1590,7 +1592,7 @@ pub struct MODELELEMENT {
 	#[serde(rename = "TimeSeriesModel")]
 	pub time_series_model: TimeSeriesModel,
 	#[serde(rename = "TreeModel")]
-	pub tree_model: String,
+	pub tree_model: Option<String>,
 }
 
 
@@ -1606,7 +1608,7 @@ pub struct MiningBuildTask {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct MININGFUNCTION {
 	#[serde(rename = "MINING-FUNCTION")]
-	pub miningfunction: String,
+	pub miningfunction: Option<String>,
 }
 
 
@@ -1626,7 +1628,7 @@ pub struct Extension {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NUMBER {
 	#[serde(rename = "NUMBER")]
-	pub number: f64,
+	pub number: Option<f64>,
 }
 
 
@@ -1634,7 +1636,7 @@ pub struct NUMBER {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct INTNUMBER {
 	#[serde(rename = "INT-NUMBER")]
-	pub intnumber: i32,
+	pub intnumber: Option<i32>,
 }
 
 
@@ -1642,7 +1644,7 @@ pub struct INTNUMBER {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct REALNUMBER {
 	#[serde(rename = "REAL-NUMBER")]
-	pub realnumber: f64,
+	pub realnumber: Option<f64>,
 }
 
 
@@ -1650,7 +1652,7 @@ pub struct REALNUMBER {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PROBNUMBER {
 	#[serde(rename = "PROB-NUMBER")]
-	pub probnumber: f64,
+	pub probnumber: Option<f64>,
 }
 
 
@@ -1658,7 +1660,7 @@ pub struct PROBNUMBER {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PERCENTAGENUMBER {
 	#[serde(rename = "PERCENTAGE-NUMBER")]
-	pub percentagenumber: f64,
+	pub percentagenumber: Option<f64>,
 }
 
 
@@ -1666,7 +1668,7 @@ pub struct PERCENTAGENUMBER {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct FIELDNAME {
 	#[serde(rename = "FIELD-NAME")]
-	pub fieldname: String,
+	pub fieldname: Option<String>,
 }
 
 
@@ -1780,7 +1782,7 @@ pub struct REALSparseArray {
 	#[serde(rename = "Indices")]
 	pub indices: Indices,
 	#[serde(rename = "REAL-Entries")]
-	pub real_entries: String,
+	pub real_entries: Option<String>,
 }
 
 
@@ -1819,7 +1821,7 @@ pub struct RealEntries {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct real_entries {
 	#[serde(rename = "REAL-Entries")]
-	pub real_entries: String,
+	pub real_entries: Option<String>,
 }
 
 
@@ -1839,7 +1841,7 @@ pub struct Matrix {
 	#[serde(rename = "NUM-ARRAY")]
 	pub numarray: Vec<NUMARRAY>,
 	#[serde(rename = "Matrix")]
-	pub matrix: String,
+	pub matrix: Option<String>,
 }
 
 
@@ -1847,11 +1849,11 @@ pub struct Matrix {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct MatCell {
 	#[serde(rename = "row")]
-	pub row: i32,
+	pub row: Option<i32>,
 	#[serde(rename = "col")]
-	pub col: i32,
+	pub col: Option<i32>,
 	#[serde(rename = "$value")]
-	pub value: String,
+	pub value: Option<String>,
 }
 
 
@@ -1879,7 +1881,7 @@ pub struct Header {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Application {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "version")]
 	pub version: Option<String>,
 	#[serde(rename = "Extension")]
@@ -1909,11 +1911,11 @@ pub struct NearestNeighborModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "numberOfNeighbors")]
-	pub number_of_neighbors: i32,
+	pub number_of_neighbors: Option<i32>,
 	#[serde(rename = "continuousScoringMethod")]
 	pub continuous_scoring_method: Option<ContScoringMethod>,
 	#[serde(rename = "categoricalScoringMethod")]
@@ -1941,7 +1943,7 @@ pub struct NearestNeighborModel {
 	#[serde(rename = "TrainingInstances")]
 	pub training_instances: TrainingInstances,
 	#[serde(rename = "ComparisonMeasure")]
-	pub comparison_measure: String,
+	pub comparison_measure: Option<String>,
 	#[serde(rename = "KNNInputs")]
 	pub knn_inputs: KNNInputs,
 	#[serde(rename = "ModelVerification")]
@@ -1983,7 +1985,7 @@ pub struct InstanceFields {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct InstanceField {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "column")]
 	pub column: Option<String>,
 	#[serde(rename = "Extension")]
@@ -2005,7 +2007,7 @@ pub struct KNNInputs {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct KNNInput {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "fieldWeight")]
 	pub field_weight: Option<f64>,
 	#[serde(rename = "compareFunction")]
@@ -2029,7 +2031,7 @@ pub struct MiningSchema {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct MiningField {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "usageType")]
 	pub usage_type: Option<FieldUsageType>,
 	#[serde(rename = "optype")]
@@ -2071,7 +2073,7 @@ pub struct ModelExplanation {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PredictiveModelQuality {
 	#[serde(rename = "targetField")]
-	pub target_field: String,
+	pub target_field: Option<String>,
 	#[serde(rename = "dataName")]
 	pub data_name: Option<String>,
 	#[serde(rename = "dataUsage")]
@@ -2115,7 +2117,7 @@ pub struct PredictiveModelQuality {
 	#[serde(rename = "LiftData")]
 	pub lift_data: Vec<LiftData>,
 	#[serde(rename = "PredictiveModelQuality")]
-	pub predictive_model_quality: String,
+	pub predictive_model_quality: Option<String>,
 }
 
 
@@ -2241,7 +2243,7 @@ pub struct BoundaryValueMeans {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ROC {
 	#[serde(rename = "positiveTargetFieldValue")]
-	pub positive_target_field_value: String,
+	pub positive_target_field_value: Option<String>,
 	#[serde(rename = "positiveTargetFieldDisplayValue")]
 	pub positive_target_field_display_value: Option<String>,
 	#[serde(rename = "negativeTargetFieldValue")]
@@ -2277,7 +2279,7 @@ pub struct ConfusionMatrix {
 	#[serde(rename = "ClassLabels")]
 	pub class_labels: ClassLabels,
 	#[serde(rename = "Matrix")]
-	pub matrix: String,
+	pub matrix: Option<String>,
 }
 
 
@@ -2321,7 +2323,7 @@ pub struct CorrelationValues {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "Matrix")]
-	pub matrix: String,
+	pub matrix: Option<String>,
 }
 
 
@@ -2331,7 +2333,7 @@ pub struct CorrelationMethods {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "Matrix")]
-	pub matrix: String,
+	pub matrix: Option<String>,
 }
 
 
@@ -2365,7 +2367,7 @@ pub struct VerificationFields {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct VerificationField {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "column")]
 	pub column: Option<String>,
 	#[serde(rename = "precision")]
@@ -2383,7 +2385,7 @@ pub struct MiningModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "isScorable")]
@@ -2449,7 +2451,7 @@ pub struct EmbeddedModel {
 	#[serde(rename = "Regression")]
 	pub regression: Regression,
 	#[serde(rename = "DecisionTree")]
-	pub decision_tree: String,
+	pub decision_tree: Option<String>,
 }
 
 
@@ -2457,7 +2459,7 @@ pub struct EmbeddedModel {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ResultField {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "displayName")]
 	pub display_name: Option<String>,
 	#[serde(rename = "optype")]
@@ -2479,7 +2481,7 @@ pub struct Regression {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "normalizationMethod")]
@@ -2507,7 +2509,7 @@ pub struct DecisionTree {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "missingValueStrategy")]
@@ -2531,7 +2533,7 @@ pub struct DecisionTree {
 	#[serde(rename = "ResultField")]
 	pub result_field: Vec<ResultField>,
 	#[serde(rename = "DecisionTree")]
-	pub decision_tree: String,
+	pub decision_tree: Option<String>,
 }
 
 
@@ -2541,9 +2543,9 @@ pub struct NaiveBayesModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "threshold")]
-	pub threshold: f64,
+	pub threshold: Option<f64>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "isScorable")]
@@ -2585,7 +2587,7 @@ pub struct BayesInputs {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct BayesInput {
 	#[serde(rename = "fieldName")]
-	pub field_name: String,
+	pub field_name: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "TargetValueStats")]
@@ -2601,7 +2603,7 @@ pub struct BayesInput {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct BayesOutput {
 	#[serde(rename = "fieldName")]
-	pub field_name: String,
+	pub field_name: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "TargetValueCounts")]
@@ -2623,7 +2625,7 @@ pub struct TargetValueStats {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TargetValueStat {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "CONTINUOUS-DISTRIBUTION-TYPES")]
 	pub continuousdistributiontypes: CONTINUOUSDISTRIBUTIONTYPES,
 	#[serde(rename = "Extension")]
@@ -2635,7 +2637,7 @@ pub struct TargetValueStat {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PairCounts {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "TargetValueCounts")]
@@ -2657,9 +2659,9 @@ pub struct TargetValueCounts {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TargetValueCount {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "count")]
-	pub count: f64,
+	pub count: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -2671,11 +2673,11 @@ pub struct NeuralNetwork {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "activationFunction")]
-	pub activation_function: String,
+	pub activation_function: Option<String>,
 	#[serde(rename = "normalizationMethod")]
 	pub normalization_method: Option<String>,
 	#[serde(rename = "threshold")]
@@ -2763,7 +2765,7 @@ pub struct NeuralOutputs {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ACTIVATIONFUNCTION {
 	#[serde(rename = "ACTIVATION-FUNCTION")]
-	pub activationfunction: String,
+	pub activationfunction: Option<String>,
 }
 
 
@@ -2771,7 +2773,7 @@ pub struct ACTIVATIONFUNCTION {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NNNORMALIZATIONMETHOD {
 	#[serde(rename = "NN-NORMALIZATION-METHOD")]
-	pub nnnormalizationmethod: String,
+	pub nnnormalizationmethod: Option<String>,
 }
 
 
@@ -2779,7 +2781,7 @@ pub struct NNNORMALIZATIONMETHOD {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NNNEURONID {
 	#[serde(rename = "NN-NEURON-ID")]
-	pub nnneuronid: String,
+	pub nnneuronid: Option<String>,
 }
 
 
@@ -2787,7 +2789,7 @@ pub struct NNNEURONID {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NNNEURONIDREF {
 	#[serde(rename = "NN-NEURON-IDREF")]
-	pub nnneuronidref: String,
+	pub nnneuronidref: Option<String>,
 }
 
 
@@ -2795,7 +2797,7 @@ pub struct NNNEURONIDREF {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NeuralInput {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "DerivedField")]
@@ -2807,7 +2809,7 @@ pub struct NeuralInput {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Neuron {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "bias")]
 	pub bias: Option<f64>,
 	#[serde(rename = "width")]
@@ -2825,9 +2827,9 @@ pub struct Neuron {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Con {
 	#[serde(rename = "from")]
-	pub from: String,
+	pub from: Option<String>,
 	#[serde(rename = "weight")]
-	pub weight: f64,
+	pub weight: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -2837,7 +2839,7 @@ pub struct Con {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NeuralOutput {
 	#[serde(rename = "outputNeuron")]
-	pub output_neuron: String,
+	pub output_neuron: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "DerivedField")]
@@ -2859,13 +2861,13 @@ pub struct Output {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct OutputField {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "displayName")]
 	pub display_name: Option<String>,
 	#[serde(rename = "optype")]
 	pub optype: Option<String>,
 	#[serde(rename = "dataType")]
-	pub data_type: String,
+	pub data_type: Option<String>,
 	#[serde(rename = "targetField")]
 	pub target_field: Option<String>,
 	#[serde(rename = "feature")]
@@ -2893,7 +2895,7 @@ pub struct OutputField {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "OutputField")]
-	pub output_field: String,
+	pub output_field: Option<String>,
 }
 
 
@@ -2901,7 +2903,7 @@ pub struct OutputField {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct RESULTFEATURE {
 	#[serde(rename = "RESULT-FEATURE")]
-	pub resultfeature: String,
+	pub resultfeature: Option<String>,
 }
 
 
@@ -2923,7 +2925,7 @@ pub struct Decisions {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Decision {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "displayValue")]
 	pub display_value: Option<String>,
 	#[serde(rename = "description")]
@@ -2937,7 +2939,7 @@ pub struct Decision {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct RULEFEATURE {
 	#[serde(rename = "RULE-FEATURE")]
-	pub rulefeature: String,
+	pub rulefeature: Option<String>,
 }
 
 
@@ -2947,7 +2949,7 @@ pub struct RegressionModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "modelType")]
@@ -2975,7 +2977,7 @@ pub struct RegressionModel {
 	#[serde(rename = "RegressionTable")]
 	pub regression_table: Vec<RegressionTable>,
 	#[serde(rename = "RegressionModel")]
-	pub regression_model: String,
+	pub regression_model: Option<String>,
 }
 
 
@@ -2983,7 +2985,7 @@ pub struct RegressionModel {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct REGRESSIONNORMALIZATIONMETHOD {
 	#[serde(rename = "REGRESSIONNORMALIZATIONMETHOD")]
-	pub regressionnormalizationmethod: String,
+	pub regressionnormalizationmethod: Option<String>,
 }
 
 
@@ -2991,7 +2993,7 @@ pub struct REGRESSIONNORMALIZATIONMETHOD {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct RegressionTable {
 	#[serde(rename = "intercept")]
-	pub intercept: f64,
+	pub intercept: Option<f64>,
 	#[serde(rename = "targetCategory")]
 	pub target_category: Option<String>,
 	#[serde(rename = "Extension")]
@@ -3009,11 +3011,11 @@ pub struct RegressionTable {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NumericPredictor {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "exponent")]
 	pub exponent: Option<i32>,
 	#[serde(rename = "coefficient")]
-	pub coefficient: f64,
+	pub coefficient: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -3023,11 +3025,11 @@ pub struct NumericPredictor {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct CategoricalPredictor {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "coefficient")]
-	pub coefficient: f64,
+	pub coefficient: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -3039,7 +3041,7 @@ pub struct PredictorTerm {
 	#[serde(rename = "name")]
 	pub name: Option<String>,
 	#[serde(rename = "coefficient")]
-	pub coefficient: f64,
+	pub coefficient: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "FieldRef")]
@@ -3053,7 +3055,7 @@ pub struct RuleSetModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "isScorable")]
@@ -3105,9 +3107,9 @@ pub struct RuleSet {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct RuleSelectionMethod {
 	#[serde(rename = "criterion")]
-	pub criterion: String,
+	pub criterion: Option<String>,
 	#[serde(rename = "RuleSelectionMethod")]
-	pub rule_selection_method: String,
+	pub rule_selection_method: Option<String>,
 }
 
 
@@ -3127,7 +3129,7 @@ pub struct SimpleRule {
 	#[serde(rename = "id")]
 	pub id: Option<String>,
 	#[serde(rename = "score")]
-	pub score: String,
+	pub score: Option<String>,
 	#[serde(rename = "recordCount")]
 	pub record_count: Option<f64>,
 	#[serde(rename = "nbCorrect")]
@@ -3163,7 +3165,7 @@ pub struct Scorecard {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "initialScore")]
@@ -3195,7 +3197,7 @@ pub struct Scorecard {
 	#[serde(rename = "Characteristics")]
 	pub characteristics: Characteristics,
 	#[serde(rename = "Scorecard")]
-	pub scorecard: String,
+	pub scorecard: Option<String>,
 }
 
 
@@ -3257,7 +3259,7 @@ pub struct SequenceModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "numberOfTransactions")]
@@ -3339,7 +3341,7 @@ pub struct Constraints {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ELEMENTID {
 	#[serde(rename = "ELEMENT-ID")]
-	pub elementid: String,
+	pub elementid: Option<String>,
 }
 
 
@@ -3347,9 +3349,9 @@ pub struct ELEMENTID {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SetPredicate {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "operator")]
 	pub operator: Option<String>,
 	#[serde(rename = "STRING-ARRAY")]
@@ -3363,7 +3365,7 @@ pub struct SetPredicate {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct DELIMITER {
 	#[serde(rename = "DELIMITER")]
-	pub delimiter: String,
+	pub delimiter: Option<String>,
 }
 
 
@@ -3371,7 +3373,7 @@ pub struct DELIMITER {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct GAP {
 	#[serde(rename = "GAP")]
-	pub gap: String,
+	pub gap: Option<String>,
 }
 
 
@@ -3379,9 +3381,9 @@ pub struct GAP {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Delimiter {
 	#[serde(rename = "delimiter")]
-	pub delimiter: String,
+	pub delimiter: Option<String>,
 	#[serde(rename = "gap")]
-	pub gap: String,
+	pub gap: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -3421,7 +3423,7 @@ pub struct FOLLOWSET {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Sequence {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "numberOfSets")]
 	pub number_of_sets: Option<i32>,
 	#[serde(rename = "occurrence")]
@@ -3443,7 +3445,7 @@ pub struct Sequence {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SetReference {
 	#[serde(rename = "setId")]
-	pub set_id: String,
+	pub set_id: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -3453,15 +3455,15 @@ pub struct SetReference {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SequenceRule {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "numberOfSets")]
-	pub number_of_sets: i32,
+	pub number_of_sets: Option<i32>,
 	#[serde(rename = "occurrence")]
-	pub occurrence: i32,
+	pub occurrence: Option<i32>,
 	#[serde(rename = "support")]
-	pub support: f64,
+	pub support: Option<f64>,
 	#[serde(rename = "confidence")]
-	pub confidence: f64,
+	pub confidence: Option<f64>,
 	#[serde(rename = "lift")]
 	pub lift: Option<f64>,
 	#[serde(rename = "Extension")]
@@ -3493,7 +3495,7 @@ pub struct SEQUENCE {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SequenceReference {
 	#[serde(rename = "seqId")]
-	pub seq_id: String,
+	pub seq_id: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -3545,7 +3547,7 @@ pub struct UnivariateStats {
 	#[serde(rename = "ContStats")]
 	pub cont_stats: ContStats,
 	#[serde(rename = "UnivariateStats")]
-	pub univariate_stats: String,
+	pub univariate_stats: Option<String>,
 }
 
 
@@ -3553,7 +3555,7 @@ pub struct UnivariateStats {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Counts {
 	#[serde(rename = "totalFreq")]
-	pub total_freq: f64,
+	pub total_freq: Option<f64>,
 	#[serde(rename = "missingFreq")]
 	pub missing_freq: Option<f64>,
 	#[serde(rename = "invalidFreq")]
@@ -3591,9 +3593,9 @@ pub struct NumericInfo {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Quantile {
 	#[serde(rename = "quantileLimit")]
-	pub quantile_limit: f64,
+	pub quantile_limit: Option<f64>,
 	#[serde(rename = "quantileValue")]
-	pub quantile_value: f64,
+	pub quantile_value: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -3703,11 +3705,11 @@ pub struct Anova {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct AnovaRow {
 	#[serde(rename = "type")]
-	pub type_attr: String,
+	pub type_attr: Option<String>,
 	#[serde(rename = "sumOfSquares")]
-	pub sum_of_squares: f64,
+	pub sum_of_squares: Option<f64>,
 	#[serde(rename = "degreesOfFreedom")]
-	pub degrees_of_freedom: f64,
+	pub degrees_of_freedom: Option<f64>,
 	#[serde(rename = "meanOfSquares")]
 	pub mean_of_squares: Option<f64>,
 	#[serde(rename = "fValue")]
@@ -3715,7 +3717,7 @@ pub struct AnovaRow {
 	#[serde(rename = "pValue")]
 	pub p_value: Option<f64>,
 	#[serde(rename = "AnovaRow")]
-	pub anova_row: String,
+	pub anova_row: Option<String>,
 }
 
 
@@ -3723,7 +3725,7 @@ pub struct AnovaRow {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Partition {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "size")]
 	pub size: Option<f64>,
 	#[serde(rename = "Extension")]
@@ -3737,7 +3739,7 @@ pub struct Partition {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PartitionFieldStats {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "weighted")]
 	pub weighted: Option<String>,
 	#[serde(rename = "FrequenciesType")]
@@ -3747,7 +3749,7 @@ pub struct PartitionFieldStats {
 	#[serde(rename = "Counts")]
 	pub counts: Counts,
 	#[serde(rename = "PartitionFieldStats")]
-	pub partition_field_stats: String,
+	pub partition_field_stats: Option<String>,
 }
 
 
@@ -3757,7 +3759,7 @@ pub struct SupportVectorMachineModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "threshold")]
@@ -3805,7 +3807,7 @@ pub struct SupportVectorMachineModel {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SVMCLASSIFICATIONMETHOD {
 	#[serde(rename = "SVM-CLASSIFICATION-METHOD")]
-	pub svmclassificationmethod: String,
+	pub svmclassificationmethod: Option<String>,
 }
 
 
@@ -3813,7 +3815,7 @@ pub struct SVMCLASSIFICATIONMETHOD {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SVMREPRESENTATION {
 	#[serde(rename = "SVM-REPRESENTATION")]
-	pub svmrepresentation: String,
+	pub svmrepresentation: Option<String>,
 }
 
 
@@ -3873,7 +3875,7 @@ pub struct SigmoidKernelType {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct VECTORID {
 	#[serde(rename = "VECTOR-ID")]
-	pub vectorid: String,
+	pub vectorid: Option<String>,
 }
 
 
@@ -3909,7 +3911,7 @@ pub struct VectorFields {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct VectorInstance {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "REAL-ARRAY")]
 	pub realarray: REALARRAY,
 	#[serde(rename = "Extension")]
@@ -3955,7 +3957,7 @@ pub struct SupportVectors {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SupportVector {
 	#[serde(rename = "vectorId")]
-	pub vector_id: String,
+	pub vector_id: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -4015,7 +4017,7 @@ pub struct Target {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "Target")]
-	pub target: String,
+	pub target: Option<String>,
 }
 
 
@@ -4041,7 +4043,7 @@ pub struct TargetValue {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Taxonomy {
 	#[serde(rename = "name")]
-	pub name: String,
+	pub name: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "ChildParent")]
@@ -4053,9 +4055,9 @@ pub struct Taxonomy {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ChildParent {
 	#[serde(rename = "childField")]
-	pub child_field: String,
+	pub child_field: Option<String>,
 	#[serde(rename = "parentField")]
-	pub parent_field: String,
+	pub parent_field: Option<String>,
 	#[serde(rename = "parentLevelField")]
 	pub parent_level_field: Option<String>,
 	#[serde(rename = "isRecursive")]
@@ -4067,7 +4069,7 @@ pub struct ChildParent {
 	#[serde(rename = "TableLocator")]
 	pub table_locator: TableLocator,
 	#[serde(rename = "ChildParent")]
-	pub child_parent: String,
+	pub child_parent: Option<String>,
 }
 
 
@@ -4101,13 +4103,13 @@ pub struct TextModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "numberOfTerms")]
-	pub number_of_terms: i32,
+	pub number_of_terms: Option<i32>,
 	#[serde(rename = "numberOfDocuments")]
-	pub number_of_documents: i32,
+	pub number_of_documents: Option<i32>,
 	#[serde(rename = "isScorable")]
 	pub is_scorable: Option<bool>,
 	#[serde(rename = "Extension")]
@@ -4131,9 +4133,9 @@ pub struct TextModel {
 	#[serde(rename = "DocumentTermMatrix")]
 	pub document_term_matrix: DocumentTermMatrix,
 	#[serde(rename = "TextModelNormalization")]
-	pub text_model_normalization: String,
+	pub text_model_normalization: Option<String>,
 	#[serde(rename = "TextModelSimiliarity")]
-	pub text_model_similiarity: String,
+	pub text_model_similiarity: Option<String>,
 	#[serde(rename = "ModelVerification")]
 	pub model_verification: ModelVerification,
 }
@@ -4165,7 +4167,7 @@ pub struct TextCorpus {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TextDocument {
 	#[serde(rename = "id")]
-	pub id: String,
+	pub id: Option<String>,
 	#[serde(rename = "name")]
 	pub name: Option<String>,
 	#[serde(rename = "length")]
@@ -4183,7 +4185,7 @@ pub struct DocumentTermMatrix {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "Matrix")]
-	pub matrix: String,
+	pub matrix: Option<String>,
 }
 
 
@@ -4197,7 +4199,7 @@ pub struct TextModelNormalization {
 	#[serde(rename = "documentNormalization")]
 	pub document_normalization: Option<String>,
 	#[serde(rename = "TextModelNormalization")]
-	pub text_model_normalization: String,
+	pub text_model_normalization: Option<String>,
 }
 
 
@@ -4207,7 +4209,7 @@ pub struct TextModelSimiliarity {
 	#[serde(rename = "similarityType")]
 	pub similarity_type: Option<String>,
 	#[serde(rename = "TextModelSimiliarity")]
-	pub text_model_similiarity: String,
+	pub text_model_similiarity: Option<String>,
 }
 
 
@@ -4217,11 +4219,11 @@ pub struct TimeSeriesModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "bestFit")]
-	pub best_fit: String,
+	pub best_fit: Option<String>,
 	#[serde(rename = "isScorable")]
 	pub is_scorable: Option<bool>,
 	#[serde(rename = "Extension")]
@@ -4243,7 +4245,7 @@ pub struct TimeSeriesModel {
 	// #[serde(rename = "ARIMA")]
 	// pub arima: ARIMA,
 	#[serde(rename = "ExponentialSmoothing")]
-	pub exponential_smoothing: String,
+	pub exponential_smoothing: Option<String>,
 	#[serde(rename = "SeasonalTrendDecomposition")]
 	pub seasonal_trend_decomposition: SeasonalTrendDecomposition,
 	#[serde(rename = "ModelVerification")]
@@ -4279,7 +4281,7 @@ pub enum CatScoringMethod {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TIMESERIESALGORITHM {
 	#[serde(rename = "TIMESERIES-ALGORITHM")]
-	pub timeseriesalgorithm: String,
+	pub timeseriesalgorithm: Option<String>,
 }
 
 
@@ -4305,7 +4307,7 @@ pub struct TimeSeries {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TIMESERIESUSAGE {
 	#[serde(rename = "TIMESERIES-USAGE")]
-	pub timeseriesusage: String,
+	pub timeseriesusage: Option<String>,
 }
 
 
@@ -4317,7 +4319,7 @@ pub struct TimeValue {
 	#[serde(rename = "time")]
 	pub time: Option<f64>,
 	#[serde(rename = "value")]
-	pub value: f64,
+	pub value: Option<f64>,
 	#[serde(rename = "standardError")]
 	pub standard_error: Option<f64>,
 	#[serde(rename = "Timestamp")]
@@ -4361,7 +4363,7 @@ pub struct TimeCycle {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TIMEANCHOR {
 	#[serde(rename = "TIME-ANCHOR")]
-	pub timeanchor: String,
+	pub timeanchor: Option<String>,
 }
 
 
@@ -4369,7 +4371,7 @@ pub struct TIMEANCHOR {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct VALIDTIMESPEC {
 	#[serde(rename = "VALID-TIME-SPEC")]
-	pub validtimespec: String,
+	pub validtimespec: Option<String>,
 }
 
 
@@ -4389,7 +4391,7 @@ pub struct TimeException {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TIMEEXCEPTIONTYPE {
 	#[serde(rename = "TIME-EXCEPTION-TYPE")]
-	pub timeexceptiontype: String,
+	pub timeexceptiontype: Option<String>,
 }
 
 
@@ -4397,7 +4399,7 @@ pub struct TIMEEXCEPTIONTYPE {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct INTERPOLATIONMETHOD {
 	#[serde(rename = "INTERPOLATION-METHOD")]
-	pub interpolationmethod: String,
+	pub interpolationmethod: Option<String>,
 }
 
 
@@ -4411,11 +4413,11 @@ pub struct ExponentialSmoothing {
 	#[serde(rename = "Level")]
 	pub level: Level,
 	#[serde(rename = "Trend_ExpoSmooth")]
-	pub trend_expo_smooth: String,
+	pub trend_expo_smooth: Option<String>,
 	#[serde(rename = "Seasonality_ExpoSmooth")]
-	pub seasonality_expo_smooth: String,
+	pub seasonality_expo_smooth: Option<String>,
 	#[serde(rename = "ExponentialSmoothing")]
-	pub exponential_smoothing: String,
+	pub exponential_smoothing: Option<String>,
 }
 
 
@@ -4449,9 +4451,9 @@ pub struct TrendExpoSmooth {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SeasonalityExpoSmooth {
 	#[serde(rename = "type")]
-	pub type_attr: String,
+	pub type_attr: Option<String>,
 	#[serde(rename = "period")]
-	pub period: i32,
+	pub period: Option<i32>,
 	#[serde(rename = "unit")]
 	pub unit: Option<String>,
 	#[serde(rename = "phase")]
@@ -4503,11 +4505,11 @@ pub struct EXPRESSION {
 	#[serde(rename = "MapValues")]
 	pub map_values: MapValues,
 	#[serde(rename = "TextIndex")]
-	pub text_index: String,
+	pub text_index: Option<String>,
 	#[serde(rename = "Apply")]
 	pub apply: Apply,
 	#[serde(rename = "Aggregate")]
-	pub aggregate: String,
+	pub aggregate: Option<String>,
 	#[serde(rename = "Lag")]
 	pub lag: Lag,
 }
@@ -4543,9 +4545,9 @@ pub struct DerivedField {
 	#[serde(rename = "displayName")]
 	pub display_name: Option<String>,
 	#[serde(rename = "optype")]
-	pub optype: String,
+	pub optype: Option<String>,
 	#[serde(rename = "dataType")]
-	pub data_type: String,
+	pub data_type: Option<String>,
 	#[serde(rename = "EXPRESSION")]
 	pub expression: EXPRESSION,
 	#[serde(rename = "Extension")]
@@ -4561,7 +4563,7 @@ pub struct Constant {
 	#[serde(rename = "dataType")]
 	pub data_type: Option<String>,
 	#[serde(rename = "$value")]
-	pub value: String,
+	pub value: Option<String>,
 }
 
 
@@ -4569,7 +4571,7 @@ pub struct Constant {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct FieldRef {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "mapMissingTo")]
 	pub map_missing_to: Option<String>,
 	#[serde(rename = "Extension")]
@@ -4583,7 +4585,7 @@ pub struct NormContinuous {
 	#[serde(rename = "mapMissingTo")]
 	pub map_missing_to: Option<f64>,
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "outliers")]
 	pub outliers: Option<OutlierTreatmentMethod>,
 	#[serde(rename = "Extension")]
@@ -4597,9 +4599,9 @@ pub struct NormContinuous {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct LinearNorm {
 	#[serde(rename = "orig")]
-	pub orig: f64,
+	pub orig: Option<f64>,
 	#[serde(rename = "norm")]
-	pub norm: f64,
+	pub norm: Option<f64>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -4609,9 +4611,9 @@ pub struct LinearNorm {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NormDiscrete {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "mapMissingTo")]
 	pub map_missing_to: Option<f64>,
 	#[serde(rename = "Extension")]
@@ -4623,7 +4625,7 @@ pub struct NormDiscrete {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Discretize {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "mapMissingTo")]
 	pub map_missing_to: Option<String>,
 	#[serde(rename = "defaultValue")]
@@ -4641,11 +4643,11 @@ pub struct Discretize {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct DiscretizeBin {
 	#[serde(rename = "binValue")]
-	pub bin_value: String,
+	pub bin_value: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "Interval")]
-	pub interval: String,
+	pub interval: Option<String>,
 }
 
 
@@ -4657,7 +4659,7 @@ pub struct MapValues {
 	#[serde(rename = "defaultValue")]
 	pub default_value: Option<String>,
 	#[serde(rename = "outputColumn")]
-	pub output_column: String,
+	pub output_column: Option<String>,
 	#[serde(rename = "dataType")]
 	pub data_type: Option<String>,
 	#[serde(rename = "Extension")]
@@ -4675,9 +4677,9 @@ pub struct MapValues {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct FieldColumnPair {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "column")]
-	pub column: String,
+	pub column: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 }
@@ -4687,7 +4689,7 @@ pub struct FieldColumnPair {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct TextIndex {
 	#[serde(rename = "textField")]
-	pub text_field: String,
+	pub text_field: Option<String>,
 	#[serde(rename = "localTermWeights")]
 	pub local_term_weights: Option<String>,
 	#[serde(rename = "isCaseSensitive")]
@@ -4705,7 +4707,7 @@ pub struct TextIndex {
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "TextIndex")]
-	pub text_index: String,
+	pub text_index: Option<String>,
 }
 
 
@@ -4741,15 +4743,15 @@ pub struct TextIndexNormalization {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Aggregate {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "function")]
-	pub function: String,
+	pub function: Option<String>,
 	#[serde(rename = "groupField")]
 	pub group_field: Option<String>,
 	#[serde(rename = "sqlWhere")]
 	pub sql_where: Option<String>,
 	#[serde(rename = "Aggregate")]
-	pub aggregate: String,
+	pub aggregate: Option<String>,
 }
 
 
@@ -4757,7 +4759,7 @@ pub struct Aggregate {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Lag {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "n")]
 	pub n: Option<u32>,
 	#[serde(rename = "Extension")]
@@ -4771,7 +4773,7 @@ pub struct Lag {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct BlockIndicator {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 }
 
 
@@ -4781,7 +4783,7 @@ pub struct TreeModel {
 	#[serde(rename = "modelName")]
 	pub model_name: Option<String>,
 	#[serde(rename = "functionName")]
-	pub function_name: String,
+	pub function_name: Option<String>,
 	#[serde(rename = "algorithmName")]
 	pub algorithm_name: Option<String>,
 	#[serde(rename = "missingValueStrategy")]
@@ -4811,7 +4813,7 @@ pub struct TreeModel {
 	#[serde(rename = "Node")]
 	pub node: Node,
 	#[serde(rename = "TreeModel")]
-	pub tree_model: String,
+	pub tree_model: Option<String>,
 }
 
 
@@ -4845,11 +4847,11 @@ pub struct Node {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PREDICATE {
 	#[serde(rename = "SimplePredicate")]
-	pub simple_predicate: String,
+	pub simple_predicate: Option<String>,
 	#[serde(rename = "CompoundPredicate")]
-	pub compound_predicate: String,
+	pub compound_predicate: Option<String>,
 	#[serde(rename = "SimpleSetPredicate")]
-	pub simple_set_predicate: String,
+	pub simple_set_predicate: Option<String>,
 	#[serde(rename = "True")]
 	pub true_attr: True,
 	#[serde(rename = "False")]
@@ -4861,13 +4863,13 @@ pub struct PREDICATE {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SimplePredicate {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "operator")]
-	pub operator: String,
+	pub operator: Option<String>,
 	#[serde(rename = "value")]
 	pub value: Option<String>,
 	#[serde(rename = "SimplePredicate")]
-	pub simple_predicate: String,
+	pub simple_predicate: Option<String>,
 }
 
 
@@ -4875,11 +4877,11 @@ pub struct SimplePredicate {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct CompoundPredicate {
 	#[serde(rename = "booleanOperator")]
-	pub boolean_operator: String,
+	pub boolean_operator: Option<String>,
 	#[serde(rename = "PREDICATE")]
 	pub predicate: PREDICATE,
 	#[serde(rename = "CompoundPredicate")]
-	pub compound_predicate: String,
+	pub compound_predicate: Option<String>,
 }
 
 
@@ -4887,13 +4889,13 @@ pub struct CompoundPredicate {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct SimpleSetPredicate {
 	#[serde(rename = "field")]
-	pub field: String,
+	pub field: Option<String>,
 	#[serde(rename = "booleanOperator")]
-	pub boolean_operator: String,
+	pub boolean_operator: Option<String>,
 	#[serde(rename = "Extension")]
 	pub extension: Vec<Extension>,
 	#[serde(rename = "SimpleSetPredicate")]
-	pub simple_set_predicate: String,
+	pub simple_set_predicate: Option<String>,
 }
 
 
@@ -4917,9 +4919,9 @@ pub struct False {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ScoreDistribution {
 	#[serde(rename = "value")]
-	pub value: String,
+	pub value: Option<String>,
 	#[serde(rename = "recordCount")]
-	pub record_count: f64,
+	pub record_count: Option<f64>,
 	#[serde(rename = "confidence")]
 	pub confidence: Option<f64>,
 	#[serde(rename = "probability")]
@@ -4933,7 +4935,7 @@ pub struct ScoreDistribution {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct MISSINGVALUESTRATEGY {
 	#[serde(rename = "MISSING-VALUE-STRATEGY")]
-	pub missingvaluestrategy: String,
+	pub missingvaluestrategy: Option<String>,
 }
 
 
@@ -4941,7 +4943,7 @@ pub struct MISSINGVALUESTRATEGY {
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct NOTRUECHILDSTRATEGY {
 	#[serde(rename = "NO-TRUE-CHILD-STRATEGY")]
-	pub notruechildstrategy: String,
+	pub notruechildstrategy: Option<String>,
 }
 
 
